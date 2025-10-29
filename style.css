@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.container-of-all {
+    display: flex;
+    width: 90%;
+    height: 80vh;
+    flex-direction: column;
+    /* background-color: aqua; */
+}
+
+.header {
+    height: 50vh;
+    width: 100%;
+    /* background-color: rebeccapurple; */
+    /* margin-bottom: 150px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 97px;
+
+
+}
+
+#image {
+    width: 90%;
+    border-radius: 20px;
+    height: 293px;
+    padding-top: 20px;
+}
+
+.container {
+    display: grid;
+    justify-items: center;
+    gap: 80px;
+    background-color: #3A1213;
+
+    /* background-color: brown; */
+    /* column-gap: 80px; */
+    grid-template-columns: repeat(3, 1fr);
+    padding-block: 150px;
+    align-items: center;
+
+}
+
+.cidate {
+    display: flex;
+    gap: 120px;
+}
+
+.prdis {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 288px;
+}
+
+.popupdiv {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.popupdiv .popup {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+.divinfo {
+    display: flex;
+    width: 23vw;
+    height: 20vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 20px;
+    justify-content: space-between;
+}
+
+.divinfo button {
+    color: black;
+    width: 6vw;
+    height: 31px;
+    color: black;
+    background-color: aquamarine;
+    box-shadow: #4fbfbb 2px 1px 7px;
+    border-radius: 20px;
+}
+
+.the-box {
+    /* background-color: blue; */
+    width: 22vw;
+    height: 60vh;
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: #160706;
+    color: #8f9292;
+}
+
+.nameofevent{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
