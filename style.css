@@ -13,15 +13,32 @@
 }
 
 .header {
-    height: 50vh;
+    height: 30vh;
     width: 100%;
     /* background-color: rebeccapurple; */
     /* margin-bottom: 150px; */
     display: flex;
     justify-content: center;
+    background-color: #3A1213;
     align-items: center;
-    padding-top: 97px;
+    padding-top: 20px;
 
+
+}
+
+.header h2 {
+    width: 73%;
+    height: 65%;
+    background-color: #6F2924;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xxx-large;
+    font-style: italic;
+    font-variant: petite-caps;
+    color: #b8a47c;
+    box-shadow: #c7b797 0px 3px 25px;
+    border-radius: 80px;
 
 }
 
@@ -37,6 +54,7 @@
     justify-items: center;
     gap: 80px;
     background-color: #3A1213;
+    padding-top: 250px;
 
     /* background-color: brown; */
     /* column-gap: 80px; */
@@ -104,6 +122,7 @@
     /* background-color: blue; */
     width: 22vw;
     height: 60vh;
+    box-shadow: #bc7a7aed 3px 1px 22px;
 
     display: flex;
     flex-direction: column;
@@ -115,6 +134,129 @@
     color: #8f9292;
 }
 
-.nameofevent{
+.the-box:hover {
+    background-color: grey;
+    color: black;
+    animation-duration: 3s;
+    animation-delay: 5s;
+    transform: scale(1.1);
+    transform: rotateX(10deg);
+}
+
+.nameofevent {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.myform {
+    background-color: #8C573A;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+
+.ticketdiv {
+    background-color: #4A1B1F;
+    width: 60%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ticket {
+    background-color: #D1A289;
+    width: 72%;
+    height: 54%;
+    border-radius: 20px;
+    display: flex;
+    box-shadow: #D3974E 1px 3px 20px;
+}
+
+.ticket #qrcode {
+
+    width: 70%;
+
+}
+
+.leftside {
+    padding-top: 20px;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 30px;
+
+}
+
+.rightside {
+    position: relative;
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 30px
+}
+
+.cida {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#p1 {
+    position: absolute;
+    top: 1rem;
+    left: 7rem;
+}
+
+.line {
+    display: flex;
+    justify-content: start;
+}
+
+#price {
+    position: absolute;
+    left: 34rem;
+    top: 13rem;
+}
+
+.addsub {
+    display: flex;
+    width: 30%;
+    justify-content: center;
+    padding-top: 15px;
+    gap: 30px;
+}
+
+#btn1 {
+    width: 7%;
+    border-radius: 3px;
+
+}
+
+#btn2 {
+    width: 15%;
+    height: 100%;
+    border-radius: 3px;
+}
+
+.divbtn {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    height: 6%;
+}
+
+#numofticket {
+    width: 15%;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
 }
