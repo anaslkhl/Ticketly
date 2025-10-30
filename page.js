@@ -1,17 +1,16 @@
-let b = document.getElementById("button");
-b.addEventListener("click", myFunction);
+let ver = document.querySelectorAll(".the-box")
+let form = document.querySelector(".myform")
+let con = document.querySelector(".container")
 
-function myFunction() {
-    window.location.href = 'in.html';
+ver.forEach(ve => {
+    ve.addEventListener("click", openForm)
+})
+function openForm(){
+ form.style.display = "flex";
+  con.style.display = "none"; 
+   } 
+
+function closeForm() {
+    document.querySelector(".myform").style.display = "none";
 }
-
-
-
-
-
-// function openForm() {
-//     document.getElementById("myform").style.display = "block";
-// }
-// function closeForm() {
-//     let popup = document.getElementById("myform").style.display = "none";
-// }
+// 0703788414 gh
