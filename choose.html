@@ -175,17 +175,17 @@
                 </div>
                 <div class="addsub">
                     <button id="btn1">-</button>
-                    <div id="numofticket">0</div>
-                    <button id="btn1">+</button>
+                    <div id="numofticket"></div>
+                    <button id="btn11">+</button>
                 </div>
                 <div class="divbtn">
-                    <button id="btn2">previous</button>
-                    <button id="btn2">next</button>
+                    <button id="prev" class="btn2">previous</button>
+                    <button id="next" class="btn2">next</button>
                 </div>
             </div>
 
         </section>
-        <section class="form-container">
+        <section class="form-container" style="display: none;">
             <h2 class="counter">Participant 1 / 3</h2>
 
             <form>
@@ -216,17 +216,16 @@
             <div class="summary">
                 <h3>Participants enregistrés</h3>
                 <ul class="participant-list">
-                    <li class="lii">Jean Dupont - jean@example.com (0600000000) <button
-                           id="deleteBtn" class="bbtn">Supprimer</button>
+                    <li class="lii"> <button id="deleteBtn" class="bbtn"></button>
                     </li>
-                    <li class="lii">Marie Durand - marie@example.com (0611111111) <button
-                          class="bbtn"  id="deleteBtn">Supprimer</button></li>
+                    <li class="lii"><button class="bbtn" id="deleteBtn"></button></li>
+                    <li class="lii"><button class="bbtn" id="deleteBtn"></button></li>
                 </ul>
             </div>
 
             <button class="bbtn" id="nextStep" disabled>Étape suivante</button>
         </section>
-        <section class="confirmation-box">
+        <section class="confirmation-box" style="display: none;">
             <h2>Récapitulatif de la réservation</h2>
 
             <div class="section0">

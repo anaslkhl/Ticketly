@@ -258,6 +258,13 @@
 
 }
 
+#btn11 {
+    width: 7%;
+    border-radius: 3px;
+    border: none;
+    background-color: #D1A289;
+}
+
 .line {
     width: 80%;
     display: flex;
@@ -281,7 +288,7 @@
     border-radius: 10px;
 }
 
-#btn2 {
+.btn2 {
     width: 17%;
     height: 115%;
     border-radius: 3px;
@@ -401,8 +408,8 @@ h2 {
     color: #3A1213;
 }
 
-/* Confirm button */ */
-.bbtn {
+/* Confirm button */
+*/ .bbtn {
     display: block;
     width: 100%;
     padding: 1rem;
@@ -521,7 +528,7 @@ form button:hover {
     background-color: #F2B974;
 }
 
-/* Summary section */
+/* Summary myform*/
 .summary {
     margin-top: 1.5rem;
 }
