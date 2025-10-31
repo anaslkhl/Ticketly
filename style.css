@@ -57,9 +57,10 @@
 .container {
     display: grid;
     justify-items: center;
-    gap: 80px;
     background-color: #3A1213;
     padding-top: 250px;
+    row-gap: 15%;
+    height: 230vh;
 
     /* background-color: brown; */
     /* column-gap: 80px; */
@@ -76,13 +77,16 @@
 
 .cidate {
     display: flex;
-    gap: 120px;
+    width: 100%;
+    justify-content: space-between;
+
 }
 
 .prdis {
     display: flex;
     flex-direction: row-reverse;
-    gap: 288px;
+    width: 100%;
+    justify-content: space-around;
 }
 
 .popupdiv {
@@ -108,14 +112,14 @@
 
 .divinfo {
     display: flex;
-    width: 23vw;
-    height: 20vh;
+    width: 93%;
+    height: 40%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: monospace;
     font-size: 20px;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .divinfo button {
@@ -130,8 +134,8 @@
 
 .the-box {
     /* background-color: blue; */
-    width: 22vw;
-    height: 60vh;
+    width: 70%;
+    height: 140%;
     box-shadow: #bc7a7aed 3px 1px 22px;
 
     display: flex;
@@ -576,4 +580,60 @@ form button:hover {
 .nextStep:disabled {
     background-color: #aaa;
     cursor: not-allowed;
+}
+
+@media (width <=1200px) {
+    .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        justify-content: space-around;
+        row-gap: 30px;
+    }
+
+    .the-box {
+        width: 40%;
+        height: 70vh;
+    }
+}
+
+
+@media (width <=780px) {
+    .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        justify-content: space-around;
+        row-gap: 30px;
+    }
+
+    .the-box {
+        width: 50%;
+        height: 60vh;
+    }
+}
+
+@media (width <=600px) {
+    /* .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        justify-content: space-around;
+        row-gap: 30px;
+    } */
+
+    .the-box {
+        width: 65%;
+        height: 55vh;
+    }
+}
+
+.liii{
+    color: #28a745;
 }
