@@ -1,6 +1,6 @@
 let ver = document.querySelectorAll(".the-box")
 let form = document.querySelector(".myform")
-let con = document.querySelector(".container")
+let con = document.getElementById("container")
 let nex = document.getElementById("next")
 let formcon = document.querySelector('.form-container')
 let prev = document.querySelector("#prev")
@@ -10,7 +10,7 @@ let counter = 0;
 let numberot = document.getElementById("numofticket")
 let plus = document.getElementById("btn11")
 let minus = document.getElementById("btn1")
-
+let nextstep = document.getElementById("nextStep")
 plus.addEventListener("click", inc)
 minus.addEventListener("click", dec)
 
@@ -25,6 +25,7 @@ prev.addEventListener("click", preve)
 
 function preve() {
     closeForm();
+    header.style.display = "flex"
     con.style.display = "grid";
 }
 
@@ -39,14 +40,26 @@ function dec() {
 
 }
 
-ver.forEach(ve => {
-    ve.addEventListener("click", openForm)
-})
-function openForm() {
-    header.style.display = "none"
-    form.style.display = "flex";
-    con.style.display = "none";
+// ver.forEach(ve => {
+//     ve.addEventListener("click", openForm)
+// })
+
+nextstep.addEventListener('click', nexxxt)
+
+function nexxxt() {
+    formcon.style.display = "none";
+    document.querySelector(".confirmation-box").style.display = "block"
+
+
 }
+
+let selectedev = document.querySelector(".nameselected")
+let dateselect = document.querySelector(".dateofselected")
+let placeselect = document.querySelector(".placeof")
+
+
+
+
 
 function closeForm() {
     document.querySelector(".myform").style.display = "none";
@@ -77,83 +90,127 @@ lname = document.getElementById("lname")
 eemail = document.getElementById("eemail")
 pphone = document.getElementById("pphone")
 
+
+const arraylist = [];
+
+let numofpart = 0;
+
 let valid = document.getElementById("myform")
+const send = document.getElementById("send")
+
+let details = document.getElementById("deta")
 
 valid.addEventListener("submit", (e) => {
+
     e.preventDefault()
     let firstname = document.getElementById("prenom")
     let lastname = document.getElementById("nom")
     let email = document.getElementById("email")
     let phone = document.getElementById("phone")
     let summar = document.querySelector(".summary")
-    let numofpart = Number(document.getElementById("numofpart").textContent);
+
+
+    // let numofpart = Number(document.getElementById("numofpart").textContent);
 
     summar.innerHTML += `
-                    <div >
-
-                    <p id="part1"></p>
-                    <ul class="participant-list" style="background-color: red;">
-
-                        <li class="liii" id="name">First name : ${firstname.value}</li>
-                        <li class="liii" id="lname">Last name : ${lastname.value}</li>
-                        <li class="liii" id="eemail">Email : ${email.value}</li>
-                        <li class="liii" id="pphone">Phone : ${phone.value}</li>
-                    </ul>
-                </div>
+    <div class="partiinfo">
+    
+    <p id="part1"></p>
+    <ul class="participant-list">
+    
+    <li class="liii" id="name">First name : ${firstname.value}</li>
+    <li class="liii" id="lname">Last name : ${lastname.value}</li>
+    <li class="liii" id="eemail">Email : ${email.value}</li>
+    <li class="liii" id="pphone">Phone : ${phone.value}</li>
+    </ul>
+    </div>
     `
-
-    let send = document.getElementById("send")
-
-    if(String(numofpart) == String(numberot.value)){
-        send.style.dis
-        return;
-    }
+    numofpart++;
     document.getElementById("numofpart").textContent = numofpart
 
-    firstname.value =  ""
-    lastname.value = ""
-    email.value =  ""
-    phone.value =  ""
-
-    // name.textContent = firstname
-    // lname.textContent = lastname
-    // eemail.textContent = email
-    // pphone.textContent = phone
+    if (numofpart === Number(numberot.textContent)) {
+        valid.style.display = 'none';
+        send.disabled = true;
+    }
 
 
-})
+    valid.reset()
 
 
+    // firstname.value = ""
+    // lastname.value = ""
+    // email.value = ""
+    // phone.value = ""
 
 
-// function addparticipant(){
-//     participant.innerHTML = firstname.value
+});
+function openForm() {
+    header.style.display = "none"
+    form.style.display = "flex";
+    con.style.display = "none";
+}
+const EVENTS = [
+    { id: 1, title: 'Samba Dance', date: '22/04/2026', city: 'Marrakech', price: 40, tickets: 400, img: '/img/dj.webp' },
+    { id: 2, title: 'Comedy Night', date: '25/04/2025', city: 'Casablanca', price: 40, tickets: 500, img: '/img/dj.webp' },
+    { id: 3, title: 'Rock Fest', date: '28/04/2025', city: 'Rabat', price: 20, tickets: 300, img: '/img/dj.webp' },
+    { id: 4, title: 'Jazz Evening', date: '30/04/2025', city: 'Tangier', price: 90, tickets: 500, img: '/img/dj.webp' },
+    { id: 5, title: 'Hip-Hop Battle', date: '02/05/2025', city: 'Agadir', price: 10, tickets: 400, img: '/img/dj.webp' },
+    { id: 6, title: 'Food Expo', date: '05/05/2025', city: 'Fez', price: 60, tickets: 500, img: '/img/dj.webp' },
+    { id: 7, title: 'Tech Meet', date: '08/05/2025', city: 'Marrakech', price: 70, tickets: 500, img: '/img/dj.webp' },
+    { id: 8, title: 'Fashion Show', date: '10/05/2025', city: 'Essaouira', price: 50, tickets: 500, img: '/img/dj.webp' },
+    { id: 9, title: 'Theatre Play', date: '12/05/2025', city: 'Casablanca', price: 85, tickets: 500, img: '/img/dj.webp' }
+];
 
-// }
+let cc = 0;
+const container = document.getElementById('container');
+
+EVENTS.forEach(ev => {
+    const shell = document.createElement('div');
+    shell.className = 'the-box';
+    shell.dataset.id = ev.id;
+
+    shell.innerHTML = `
+        <img class="image" src="${ev.img}">
+        <div class="divinfo">
+          <div class="nameofevent">${ev.title}</div>
+          <div class="cidate">
+            <div class="city">${ev.city}</div>
+            <div class="date">${ev.date}</div>
+          </div>
+          <div class="prdis">
+            <div class="price">${ev.price}$</div>
+            <div class="tdispo">${ev.tickets}</div>
+          </div>
+        </div>
+    `;
+
+    container.appendChild(shell);
+
+    shell.addEventListener('click', () => {
+        openForm();
+        document.getElementById('p1').textContent = ev.title;
+        document.getElementById('city').textContent = ev.city;
+        document.getElementById('date').textContent = ev.date;
+        document.getElementById('price').textContent = ev.price + '$';
+    });
+    cc = ev;
+
+});
+
+const seee = document.getElementById('selectedevent')
+    const shif = document.createElement('div')
+    shif.className = 'finaleventshow'
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    shif.innerHTML = `
+    <h3>🎟️ Événement sélectionné</h3>
+    <p class="nameselected"><strong>Nom de l’événement : </strong>${cc.title}</p>
+                <p class="dateofselected"><strong>Date : </strong>${cc.date}</p>
+                <p class="placeof"><strong>Lieu :</strong>${cc.city}</p>
+                <p class="priceof"><strong>price :</strong>${cc.price}</p>
+                
+                `;
+    seee.appendChild(shif);
 
 
 

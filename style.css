@@ -9,13 +9,14 @@
     flex-direction: column;
 }
 
-.container-of-all {
+/* .container-of-all {
     display: flex;
     width: 90%;
     height: 80vh;
     flex-direction: column;
-    /* background-color: aqua; */
-}
+    /* background-color: aqua; 
+}*/
+
 
 .header {
     height: 30vh;
@@ -47,14 +48,14 @@
 
 }
 
-#image {
+.image {
     width: 90%;
     border-radius: 20px;
     height: 293px;
     padding-top: 20px;
 }
 
-.container {
+#container {
     display: grid;
     justify-items: center;
     background-color: #3A1213;
@@ -161,6 +162,10 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+#pp1 {
+    align-self: center;
+}
+
 .myform {
     background-color: #8C573A;
     display: flex;
@@ -224,7 +229,9 @@
 }
 
 #p1 {
-    position: absolute;
+    font-size: xx-large;
+    font-family: monospace;
+    text-emphasis: sesame open;
     top: 1rem;
     left: 7rem;
 }
@@ -389,12 +396,17 @@ h2 {
 }
 
 .participants-list {
+    width: 40%;
+    background-color: antiquewhite;
+    border: solid 1px grey;
+    border-radius: 25px;
     list-style: none;
     padding: 0;
 }
 
 .participants-list li {
-    background-color: #f6e2c5;
+    display: flex;
+    justify-content: center;
     margin-bottom: 0.5rem;
     padding: 0.8rem;
     border-radius: 6px;
@@ -535,6 +547,7 @@ form button:hover {
 /* Summary myform*/
 .summary {
     margin-top: 1.5rem;
+    /* background-color: #28a745; */
 }
 
 .summary h3 {
@@ -545,9 +558,13 @@ form button:hover {
 .participant-list {
     list-style: none;
     padding: 0;
+    width: 50%;
+    background-color: antiquewhite;
+    border: solid 1px grey;
+    border-radius: 25px;
 }
 
-.participant-list li {
+/* .participant-list li {
     background: #cdae71;
     padding: 0.5rem;
     border-radius: 5px;
@@ -555,7 +572,7 @@ form button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+} */
 
 #deleteBtn {
     background: #913e35;
@@ -583,7 +600,7 @@ form button:hover {
 }
 
 @media (width <=1200px) {
-    .container {
+    #container {
         width: 100%;
         height: 100%;
         display: flex;
@@ -601,7 +618,7 @@ form button:hover {
 
 
 @media (width <=780px) {
-    .container {
+    #container {
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -634,6 +651,96 @@ form button:hover {
     }
 }
 
-.liii{
-    color: #28a745;
+.partiinfo {
+    display: flex;
+    justify-content: center;
+}
+
+.liii {
+    justify-content: center;
+    font-family: monospace;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+
+.recap-container {
+    max-width: 600px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+    padding: 30px 40px;
+}
+
+.recap-container h1 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 26px;
+    color: #005a9c;
+}
+
+.sectionlast {
+    margin-bottom: 25px;
+}
+
+.sectionlast h2 {
+    font-size: 18px;
+    margin: 0 0 10px;
+    color: #005a9c;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 6px;
+}
+
+.infolast,
+.participantlast {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+}
+
+.participantlast {
+    flex-direction: column;
+    background: #f9fbfd;
+    border-left: 4px solid #005a9c;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.participantlast span {
+    margin: 3px 0;
+}
+
+.totallast {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+    color: #005a9c;
+}
+
+.confirm-btn {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background: #005a9c;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .25s;
+}
+
+.confirm-btn:hover {
+    background: #00467d;
 }

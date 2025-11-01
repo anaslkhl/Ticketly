@@ -15,8 +15,32 @@
         </h2>
     </header>
     <div class="all">
-        <section class="container">
-            <div class="the-box" id="button1">
+        <section id="container">
+            <!-- <div class="the-box" data-id="1"></div>
+            <div class="the-box" data-id="2"></div>
+            <div class="the-box" data-id="3"></div>
+            <div class="the-box" data-id="4"></div>
+            <div class="the-box" data-id="5"></div>
+            <div class="the-box" data-id="6"></div>
+            <div class="the-box" data-id="7"></div>
+            <div class="the-box" data-id="8"></div>
+            <div class="the-box" data-id="9"></div> -->
+
+            <!-- <div class="the-box" id="button">
+                <img id="image" src="/img/dj.webp" alt="">
+                <div class="divinfo">
+                    <div nameofevent>music event</div>
+                    <div class="cidate">
+                        <div>Marrakech</div>
+                        <div>22/04/2025</div>
+                    </div>
+                    <div class="prdis">
+                        <div>100$</div>
+                        <div>500</div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="the-box" id="button">
                 <img id="image" src="/img/dj.webp" alt="">
                 <div class="divinfo">
                     <div nameofevent>music event</div>
@@ -113,44 +137,9 @@
                         <div>500</div>
                     </div>
                 </div>
-            </div>
-            <div class="the-box" id="button">
-                <img id="image" src="/img/dj.webp" alt="">
-                <div class="divinfo">
-                    <div nameofevent>music event</div>
-                    <div class="cidate">
-                        <div>Marrakech</div>
-                        <div>22/04/2025</div>
-                    </div>
-                    <div class="prdis">
-                        <div>100$</div>
-                        <div>500</div>
-                    </div>
-                </div>
-            </div>
-            <div class="the-box" id="button">
-                <img id="image" src="/img/dj.webp" alt="">
-                <div class="divinfo">
-                    <div nameofevent>music event</div>
-                    <div class="cidate">
-                        <div>Marrakech</div>
-                        <div>22/04/2025</div>
-                    </div>
-                    <div class="prdis">
-                        <div>100$</div>
-                        <div>500</div>
-                    </div>
-                </div>
-            </div>
+            </div> -->
         </section>
         <section class="myform" style="display: none;">
-            <div class="line">
-                <div class="circ"></div>
-                <div class="bor"></div>
-                <div class="circ"></div>
-                <div class="bor"></div>
-                <div class="circ"></div>
-            </div>
             <div class="ticketdiv">
                 <div class="ticket">
                     <div class="leftside">
@@ -158,16 +147,16 @@
                         <img id="qrcode" src="/img/qr.webp" alt="">
                     </div>
                     <div class="rightside">
-                        <div>
-                            <p id="p1">Music event</p>
+                        <div id="pp1">
+                            <p id="p1"></p>
                         </div>
                         <div class="cida">
-                            <p id="city">Marrakech</p>
-                            <p id="date">22/04/2025</p>
+                            <p id="city"></p>
+                            <p id="date"></p>
                         </div>
                         <div>
                             <div class="pric">
-                                <p id="price">100$</p>
+                                <p id="price"></p>
                             </div>
                         </div>
 
@@ -186,7 +175,7 @@
 
         </section>
         <section class="form-container" style="display: none;">
-            <h2 class="counter">Participant <span id="numofpart">1</span> / 3</h2>
+            <h2 class="counter">Participant <span id="numofpart">1</span> </h2>
 
             <form id="myform">
                 <div class="form-group">
@@ -218,40 +207,28 @@
 
             </div>
 
-            <button class="bbtn" id="nextStep" disabled>Étape suivante</button>
+            <button class="bbtn" id="nextStep" >Étape suivante</button>
         </section>
         <section class="confirmation-box" style="display: none;">
             <h2>Récapitulatif de la réservation</h2>
 
-            <div class="section0">
-                <h3>🎟️ Événement sélectionné</h3>
-                <p><strong>Nom de l’événement :</strong> Festival Jazz & Soul</p>
-                <p><strong>Date :</strong> 15 juin 2025</p>
-                <p><strong>Lieu :</strong> Théâtre du Soleil, Paris</p>
+            <div class="section0" id="selectedevent">
+                
+                
             </div>
 
             <div class="section0">
                 <h3>🎫 Nombre de billets</h3>
-                <p><strong>3 billets</strong></p>
+                <p id="slecttickets"><strong></strong></p>
             </div>
 
-            <div class="section0">
+            <div class="section0" id="deta">
                 <h3>👥 Détails des participants</h3>
                 <ul class="participants-list">
                     <li>
-                        <span><strong>Participant 1 :</strong> Jean Dupont</span><br>
+                        <span><strong>Participant</strong> Jean Dupont</span><br>
                         Email : jean@example.com<br>
                         Téléphone : 0600000000
-                    </li>
-                    <li>
-                        <span><strong>Participant 2 :</strong> Marie Durand</span><br>
-                        Email : marie@example.com<br>
-                        Téléphone : 0611111111
-                    </li>
-                    <li>
-                        <span><strong>Participant 3 :</strong> Louis Martin</span><br>
-                        Email : louis@example.com<br>
-                        Téléphone : 0622222222
                     </li>
                 </ul>
             </div>
@@ -263,8 +240,47 @@
 
             <button class="bbtn" onclick="alert('Réservation confirmée 🎉')">Confirmer la réservation</button>
         </section>
+        <section class="recap-container" style="display: none;">
+            <h1>Récapitulatif & Confirmation</h1>
+
+            <div class="sectionlasts">
+                <h2>Événement sélectionné</h2>
+                <div class="info">
+                    <span>Concert de Clara Luciani</span>
+                    <span>Samedi 15 juin 2025 – 20h30</span>
+                </div>
+            </div>
+
+            <div class="sectionlasts">
+                <h2>Nombre de billets</h2>
+                <div class="infolast">
+                    <span>2 billets</span>
+                    <span>Placement assis</span>
+                </div>
+            </div>
+
+            <div class="sectionlasts">
+                <h2>Détails de chaque participant</h2>
+                <div class="participantlast">
+                    <span><strong>Participant 1 :</strong> Alice Martin</span>
+                    <span>Email : alice.martin@email.com</span>
+                </div>
+                <div class="participantlast">
+                    <span><strong>Participant 2 :</strong> Bob Durand</span>
+                    <span>Email : bob.durand@email.com</span>
+                </div>
+            </div>
+
+            <div class="totallast">
+                Total à payer : 76 €
+            </div>
+
+            <button class="confirm-btn" onclick="alert('Réservation confirmée 🎉')">
+                Confirmer la réservation
+            </button>
+        </section>
+        <script src="/page.js"></script>
     </div>
-    <script src="/page.js"></script>
 </body>
 
 </html>
