@@ -7,7 +7,7 @@ let prev = document.querySelector("#prev")
 
 let header = document.querySelector(".header")
 let counter = 0;
-let numberot = document.getElementById("numofticket")
+let numofticket = document.getElementById("numofticket")
 let plus = document.getElementById("btn11")
 let minus = document.getElementById("btn1")
 let nextstep = document.getElementById("nextStep")
@@ -29,15 +29,27 @@ function preve() {
     con.style.display = "grid";
 }
 
-function inc() {
-    counter++;
-    numberot.textContent = counter;
-
+// helper that refreshes the summary
+function updateTicketSummary() {
+  const nuu = document.getElementById('numberof');
+  nuu.innerHTML = `<h3>🎫 Nombre de billets ${counter}</h3>`;
 }
-function dec() {
-    counter--;
-    numberot.textContent = counter;
 
+// initial render
+updateTicketSummary();
+
+function inc() {
+  counter++;
+  numofticket.innerText = counter;
+  updateTicketSummary();   // <-- refresh
+}
+
+function dec() {
+  if (counter > 0) {
+    counter--;
+    numofticket.innerText = counter;
+    updateTicketSummary(); // <-- refresh
+  }
 }
 
 // ver.forEach(ve => {
@@ -49,7 +61,6 @@ nextstep.addEventListener('click', nexxxt)
 function nexxxt() {
     formcon.style.display = "none";
     document.querySelector(".confirmation-box").style.display = "block"
-
 
 }
 
@@ -98,7 +109,6 @@ let numofpart = 0;
 let valid = document.getElementById("myform")
 const send = document.getElementById("send")
 
-let details = document.getElementById("deta")
 
 valid.addEventListener("submit", (e) => {
 
@@ -110,7 +120,7 @@ valid.addEventListener("submit", (e) => {
     let summar = document.querySelector(".summary")
 
 
-    // let numofpart = Number(document.getElementById("numofpart").textContent);
+    // let numofpart = Number(document.getElementById("numofpart").innerText);
 
     summar.innerHTML += `
     <div class="partiinfo">
@@ -126,29 +136,51 @@ valid.addEventListener("submit", (e) => {
     </div>
     `
     numofpart++;
-    document.getElementById("numofpart").textContent = numofpart
+    document.getElementById("numofpart").innerText = numofpart
 
-    if (numofpart === Number(numberot.textContent)) {
+    if (numofpart === Number(numofticket.innerText)) {
         valid.style.display = 'none';
         send.disabled = true;
     }
-
-
+    
+    const detas = document.getElementById("deta")
+    const ula = document.createElement('ul');
+    // ula.className = 'participants-list';
+    ula.innerHTML += `
+    <ul class="participants-list">
+    <li>
+    <span><strong>Participant : </strong>${firstname.value + ' ' + lastname.value}</span><br>
+    </li>
+    <li>
+    <span><strong>Téléphone : </strong>${phone.value}</span><br>
+    </li>
+    <li>
+    <span><strong>Email : </strong>${email.value}</span><br>
+    </li>
+    </ul>
+    `;
+    detas.appendChild(ula);
+    
     valid.reset()
-
-
+    
+    
     // firstname.value = ""
     // lastname.value = ""
     // email.value = ""
     // phone.value = ""
-
-
+    
+    
 });
+
+
 function openForm() {
     header.style.display = "none"
     form.style.display = "flex";
     con.style.display = "none";
 }
+const nuu = document.getElementById("numberof")
+const nuum = document.createElement('h3')
+nuu.appendChild(nuum);
 const EVENTS = [
     { id: 1, title: 'Samba Dance', date: '22/04/2026', city: 'Marrakech', price: 40, tickets: 400, img: '/img/dj.webp' },
     { id: 2, title: 'Comedy Night', date: '25/04/2025', city: 'Casablanca', price: 40, tickets: 500, img: '/img/dj.webp' },
@@ -163,54 +195,62 @@ const EVENTS = [
 
 let cc = 0;
 const container = document.getElementById('container');
-
+let billettt = 0;
 EVENTS.forEach(ev => {
     const shell = document.createElement('div');
     shell.className = 'the-box';
     shell.dataset.id = ev.id;
 
     shell.innerHTML = `
-        <img class="image" src="${ev.img}">
-        <div class="divinfo">
-          <div class="nameofevent">${ev.title}</div>
-          <div class="cidate">
-            <div class="city">${ev.city}</div>
-            <div class="date">${ev.date}</div>
-          </div>
-          <div class="prdis">
-            <div class="price">${ev.price}$</div>
-            <div class="tdispo">${ev.tickets}</div>
-          </div>
-        </div>
+    <img class="image" src="${ev.img}">
+    <div class="divinfo">
+    <div class="nameofevent">${ev.title}</div>
+    <div class="cidate">
+    <div class="city">${ev.city}</div>
+    <div class="date">${ev.date}</div>
+    </div>
+    <div class="prdis">
+    <div class="price">${ev.price}$</div>
+    <div class="tdispo">${ev.tickets}</div>
+    </div>
+    </div>
     `;
-
+    billettt += ev.price;
     container.appendChild(shell);
 
     shell.addEventListener('click', () => {
         openForm();
-        document.getElementById('p1').textContent = ev.title;
-        document.getElementById('city').textContent = ev.city;
-        document.getElementById('date').textContent = ev.date;
-        document.getElementById('price').textContent = ev.price + '$';
+        document.getElementById('p1').innerText = ev.title;
+        document.getElementById('city').innerText = ev.city;
+        document.getElementById('date').innerText = ev.date;
+        document.getElementById('price').innerText = ev.price + '$';
     });
     cc = ev;
 
 });
 
 const seee = document.getElementById('selectedevent')
-    const shif = document.createElement('div')
-    shif.className = 'finaleventshow'
+const shif = document.createElement('div')
+shif.className = 'finaleventshow'
 
 
-    shif.innerHTML = `
-    <h3>🎟️ Événement sélectionné</h3>
-    <p class="nameselected"><strong>Nom de l’événement : </strong>${cc.title}</p>
-                <p class="dateofselected"><strong>Date : </strong>${cc.date}</p>
-                <p class="placeof"><strong>Lieu :</strong>${cc.city}</p>
-                <p class="priceof"><strong>price :</strong>${cc.price}</p>
-                
-                `;
-    seee.appendChild(shif);
+shif.innerHTML = `
+<h3>🎟️ Événement sélectionné</h3>
+<p class="nameselected"><strong>Nom de l’événement : </strong>${cc.title}</p>
+<p class="dateofselected"><strong>Date : </strong>${cc.date}</p>
+<p class="placeof"><strong>Lieu :</strong>${cc.city}</p>
+<p class="priceof"><strong>price :</strong>${cc.price}$</p>
+
+`;
+seee.appendChild(shif);
+
+
+
+
+
+
+
+
 
 
 
