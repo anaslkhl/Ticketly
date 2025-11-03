@@ -4,6 +4,8 @@ let con = document.getElementById("container")
 let nex = document.getElementById("next")
 let formcon = document.querySelector('.form-container')
 let prev = document.querySelector("#prev")
+let billettt = 0;
+
 
 let header = document.querySelector(".header")
 let counter = 0;
@@ -11,9 +13,9 @@ let numofticket = document.getElementById("numofticket")
 let plus = document.getElementById("btn11")
 let minus = document.getElementById("btn1")
 let nextstep = document.getElementById("nextStep")
+
 plus.addEventListener("click", inc)
 minus.addEventListener("click", dec)
-
 // nex.addEventListener("click", nextone())
 
 // function nextone(){
@@ -22,34 +24,38 @@ minus.addEventListener("click", dec)
 // }
 prev.addEventListener("click", preve)
 
-
 function preve() {
     closeForm();
     header.style.display = "flex"
     con.style.display = "grid";
 }
 
-// helper that refreshes the summary
+let total = 0;
 function updateTicketSummary() {
-  const nuu = document.getElementById('numberof');
-  nuu.innerHTML = `<h3>🎫 Nombre de billets ${counter}</h3>`;
+    const nuu = document.getElementById('numberof');
+    nuu.innerHTML = `<h3>🎫 Nombre de billets ${counter}</h3>`;
+
 }
 
-// initial render
 updateTicketSummary();
+const nuu = document.getElementById("numberof")
+const nuum = document.createElement('h3')
+nuu.appendChild(nuum);
 
 function inc() {
-  counter++;
-  numofticket.innerText = counter;
-  updateTicketSummary();   // <-- refresh
+    counter++;
+    numofticket.innerText = counter;
+    updateTicketSummary();
+    totalpayer() 
 }
 
 function dec() {
-  if (counter > 0) {
-    counter--;
-    numofticket.innerText = counter;
-    updateTicketSummary(); // <-- refresh
-  }
+    if (counter > 0) {
+        counter--;
+        numofticket.innerText = counter;
+        updateTicketSummary(); 
+        totalpayer() 
+    }
 }
 
 // ver.forEach(ve => {
@@ -142,7 +148,7 @@ valid.addEventListener("submit", (e) => {
         valid.style.display = 'none';
         send.disabled = true;
     }
-    
+
     const detas = document.getElementById("deta")
     const ula = document.createElement('ul');
     // ula.className = 'participants-list';
@@ -160,16 +166,16 @@ valid.addEventListener("submit", (e) => {
     </ul>
     `;
     detas.appendChild(ula);
-    
+
     valid.reset()
-    
-    
+
+
     // firstname.value = ""
     // lastname.value = ""
     // email.value = ""
     // phone.value = ""
-    
-    
+
+
 });
 
 
@@ -178,9 +184,6 @@ function openForm() {
     form.style.display = "flex";
     con.style.display = "none";
 }
-const nuu = document.getElementById("numberof")
-const nuum = document.createElement('h3')
-nuu.appendChild(nuum);
 const EVENTS = [
     { id: 1, title: 'Samba Dance', date: '22/04/2026', city: 'Marrakech', price: 40, tickets: 400, img: '/img/dj.webp' },
     { id: 2, title: 'Comedy Night', date: '25/04/2025', city: 'Casablanca', price: 40, tickets: 500, img: '/img/dj.webp' },
@@ -195,7 +198,8 @@ const EVENTS = [
 
 let cc = 0;
 const container = document.getElementById('container');
-let billettt = 0;
+const seee = document.getElementById('selectedevent')
+const shif = document.createElement('div')
 EVENTS.forEach(ev => {
     const shell = document.createElement('div');
     shell.className = 'the-box';
@@ -215,7 +219,6 @@ EVENTS.forEach(ev => {
     </div>
     </div>
     `;
-    billettt += ev.price;
     container.appendChild(shell);
 
     shell.addEventListener('click', () => {
@@ -224,30 +227,43 @@ EVENTS.forEach(ev => {
         document.getElementById('city').innerText = ev.city;
         document.getElementById('date').innerText = ev.date;
         document.getElementById('price').innerText = ev.price + '$';
+        billettt = ev.price;
+        // totalpayer();
+
+        shif.className = 'finaleventshow'
+        shif.innerHTML = `
+        <h3>🎟️ Événement sélectionné</h3>
+        <p class="nameselected"><strong>Nom de l’événement : </strong>${ev.title}</p>
+        <p class="dateofselected"><strong>Date : </strong>${ev.date}</p>
+        <p class="placeof"><strong>Lieu :</strong>${ev.city}</p>
+        <p class="priceof"><strong>price :</strong>${ev.price}$</p>
+        
+        `;
+        seee.appendChild(shif);
     });
-    cc = ev;
+    // cc = ev;
 
 });
 
-const seee = document.getElementById('selectedevent')
-const shif = document.createElement('div')
-shif.className = 'finaleventshow'
+function totalpayer() {
+    total = billettt * counter;
+        const totalp = document.querySelector('.confirmation-box')
+            const existingTotal = totalp.querySelector('.section.total');
+    if (existingTotal) existingTotal.remove();
 
-
-shif.innerHTML = `
-<h3>🎟️ Événement sélectionné</h3>
-<p class="nameselected"><strong>Nom de l’événement : </strong>${cc.title}</p>
-<p class="dateofselected"><strong>Date : </strong>${cc.date}</p>
-<p class="placeof"><strong>Lieu :</strong>${cc.city}</p>
-<p class="priceof"><strong>price :</strong>${cc.price}$</p>
-
-`;
-seee.appendChild(shif);
-
-
-
-
-
+    const totaal = document.createElement('div')
+    totaal.innerHTML = `
+ <div class="section total">
+                <h3>💰 Total à payer</h3>
+                <p><strong>${total} $</strong></p>
+                </div>
+                <button class="bbtn" onclick="alert('Réservation confirmée 🎉')">Confirmer la réservation</button>
+                `;
+            totalp.appendChild(totaal);
+            
+            updateTicketSummary()
+        }
+        
 
 
 

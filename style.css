@@ -525,6 +525,7 @@ input:focus {
 }
 
 .bbtn {
+    background: #0080004d;
     width: 100%;
     padding: 0.8rem;
     border: none;
