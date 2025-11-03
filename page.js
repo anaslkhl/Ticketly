@@ -257,10 +257,10 @@ function totalpayer() {
                 <h3>💰 Total à payer</h3>
                 <p><strong>${total} $</strong></p>
                 </div>
-                <button class="bbtn" onclick="alert('Réservation confirmée 🎉')">Confirmer la réservation</button>
                 `;
-            totalp.appendChild(totaal);
-            
+                totalp.appendChild(totaal);
+                
+                // <button class="bbtn" onclick="alert('Réservation confirmée 🎉')">Confirmer la réservation</button>
             updateTicketSummary()
         }
         
